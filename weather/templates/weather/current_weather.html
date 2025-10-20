@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="{% url "current-weather" %}" method="POST">
+        {% csrf_token %}
+        <input type="text">
+    </form>
 </body>
 </html>
