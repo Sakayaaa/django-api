@@ -6,9 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url "current-weather" %}" method="POST">
-        {% csrf_token %}
-        <input type="text">
-    </form>
+    <center>
+    <div>
+        <form action="{% url "current_weather" %}" method="POST">
+            {% csrf_token %}
+            <p><input type="text" name="city" placeholder="City Name"></p>
+            <p><input type="text" name="units" placeholder="Units"></p>
+            <p><button type="submit">Get</button></p>
+        </form>
+    </div>
+    
+    <div>
+        <table>
+            <tr>
+                <th>City</th>
+                <th>Temp</th>
+                <th>Icon</th>
+            </tr>
+            <tr>
+                <td>{{city}}</td>
+                <td>{{temp}}</td>
+                <td><img src="https://openweathermap.org/img/wn/{{icon}}.png" alt=""></td>
+            </tr>
+        </table>
+    </div>
+    </center>
+
 </body>
 </html>
