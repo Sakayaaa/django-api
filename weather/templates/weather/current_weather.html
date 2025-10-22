@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <style>
-        table {
+      table {
         border: 1px solid black;
         border-collapse: collapse;
-        margin: 20px auto; 
-        }
-        th, td {
+        margin: 20px auto;
+      }
+      th,
+      td {
         border: 1px solid black;
         padding: 10px;
         text-align: center;
-        }
-        th {
-        background-color: #f09cccff; /* رنگ پس‌زمینه هدر */
-        }
+      }
+      th {
+        background-color: #f09cccff;
+      }
     </style>
-</head>
-<body style="background: pink">
+  </head>
+  <body style="background: pink">
     <center>
-    <div>
-        <form action="{% url "current_weather" %}" method="POST">
-            {% csrf_token %}
-            <p><input type="text" name="city" placeholder="City Name"></p>
-            <p><input type="text" name="units" placeholder="Units"></p>
-            <p><button type="submit">Get</button></p>
+      <div>
+        <form action="{% url 'current_weather' %}" method="POST">
+          {% csrf_token %}
+          <p>
+            <input type="text" name="city" placeholder="City Name" />
+          </p>
+          <p>
+            <input type="text" name="units" placeholder="Units" />
+          </p>
+          <p>
+            <button type="submit">Get</button>
+          </p>
         </form>
-    </div>
-    
-    <div>
-        <table>
-            <tr>
-                <th>City</th>
-                <th>Temp</th>
-                <th>Icon</th>
-            </tr>
-            <tr>
-                <td>{{city}}</td>
-                <td>{{temp}}</td>
-                <td>
-                    <img src="https://openweathermap.org/img/wn/{{icon}}.png" alt="">
-                </td>
-            </tr>
-        </table>
-    </div>
-    </center>
+      </div>
 
-</body>
+      <div>
+        <table>
+          <tr>
+            <th>City</th>
+            <th>Temp</th>
+            <th>Icon</th>
+          </tr>
+          <tr>
+            <td>{{ city }}</td>
+            <td>{{ temp }}</td>
+            <td>
+              <img src="https://openweathermap.org/img/wn/{{ icon }}.png" alt="" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+  </body>
 </html>
